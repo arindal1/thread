@@ -1,0 +1,198 @@
+// Thread - Prisma schema
+// Source of truth: docs/TRD.md §7 (Information Model), §14 (Storage), §16 (Validation)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  people People[]
+
+  @@map("users")
+}
+
+model Person {
+  id          String   @id @default(cuid())
+  ownerUserId String
+  owner       User     @relation(fields: [ownerUserId], references: [id], onDelete: Cascade)
+
+  displayName String
+  aliases     String[]
+
+  // Structured facts (§7 Person entity - all optional)
+  birthday        DateTime?
+  bloodGroup      String?
+  height          String?
+  weight          String?
+  occupation      String?
+  company         String?
+  role            String?
+  location        String?
+  talkingStyle    String?
+  hobbies         String[]
+  likes           String[]
+  dislikes        String[]
+  pets            String[]
+  kids            String[]
+  schedule        String?
+
+  summary         String?
+  aiSummary       String?
+  lastInteractionAt DateTime?
+  nextFollowUpAt    DateTime?
+
+  tags        String[]
+  isPinned    Boolean  @default(false)
+  isArchived  Boolean  @default(false)
+  deletedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  notes         Note[]
+  events        Event[]
+  topics        Topic[]
+  reminders     Reminder[]
+  importantDates ImportantDate[]
+  aiSummaries   AiSummary[]
+
+  @@index([ownerUserId])
+  @@index([displayName])
+  @@index([lastInteractionAt])
+  @@index([tags])
+  @@map("people")
+}
+
+model ImportantDate {
+  id        String   @id @default(cuid())
+  personId  String
+  person    Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+  label     String
+  date      DateTime
+  isRecurring Boolean @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([personId])
+  @@map("important_dates")
+}
+
+model Note {
+  id           String    @id @default(cuid())
+  personId     String
+  person       Person    @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  title           String?
+  content         String
+  noteType        String?
+  tags            String[]
+  location        String?
+  eventDateTime   DateTime?
+  importanceScore Int?
+  isPinned        Boolean  @default(false)
+  deletedAt       DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([personId])
+  @@index([createdAt])
+  @@index([tags])
+  @@map("notes")
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  personId    String
+  person      Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  eventType   String?
+  title       String
+  description String?
+  occurredAt  DateTime
+  location    String?
+  tags        String[]
+  deletedAt   DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([personId])
+  @@index([occurredAt])
+  @@map("events")
+}
+
+model Topic {
+  id             String   @id @default(cuid())
+  personId       String
+  person         Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  name           String
+  confidence     Float?
+  lastDiscussedAt DateTime?
+  notes          String?
+
+  createdAt DateTime @default(now())
+
+  @@index([personId])
+  @@map("topics")
+}
+
+enum ReminderStatus {
+  PENDING
+  COMPLETED
+  DISMISSED
+}
+
+enum ReminderPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model Reminder {
+  id           String           @id @default(cuid())
+  personId     String
+  person       Person           @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  reminderText String
+  dueAt        DateTime
+  status       ReminderStatus   @default(PENDING)
+  priority     ReminderPriority @default(MEDIUM)
+  sourceNoteId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([personId])
+  @@index([dueAt])
+  @@map("reminders")
+}
+
+model AiSummary {
+  id                  String   @id @default(cuid())
+  personId            String
+  person              Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  summaryText         String
+  keyFacts            String[]
+  suggestedQuestions  String[]
+  relationshipContext String?
+  modelVersion        String
+  inputSnapshotHash   String
+
+  generatedAt DateTime @default(now())
+
+  @@index([personId])
+  @@map("ai_summaries")
+}

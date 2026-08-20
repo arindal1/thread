@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Thread design system: Marble & Ember ----
+   Neoclassical stone + gold leaf, warmed by cinematic dark luxury.
+   This is the single, permanent theme — no more [data-concept] scoping. */
+:root {
+  --bg: #0b0908;
+  --surface: #161210;
+  --ink: #f3ecdf;
+  --muted: #9c8f7a;
+  --accent: #c9a24b;
+  --accent-2: #7a1f2b;
+  --line: color-mix(in oklch, var(--ink) 16%, transparent);
+
+  --font-display: var(--font-cinzel);
+  --font-serif: var(--font-cormorant);
+  --font-text: var(--font-cormorant);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+}
+
+.column-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-text, var(--font-eb-garamond));
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fluid type steps used across concepts */
+:root {
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.94rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.13rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-3: clamp(2.07rem, 1.7rem + 1.85vw, 3.38rem);
+  --step-6: clamp(4.3rem, 2.9rem + 7vw, 9rem);
+  --step-8: clamp(6rem, 2.5rem + 17.5vw, 18rem);
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: width 0.2s var(--tw-ease-expo, ease), height 0.2s ease;
+}
