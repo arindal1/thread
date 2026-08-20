@@ -10,7 +10,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Thread - A Personal CRM",
+    default: "Thread | A Personal CRM",
     template: "%s · Thread",
   },
   description: DESCRIPTION,
@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     "contact notes",
     "private memory system",
     "networking tool",
+    "thread",
+    "thread app",
+    "github",
+    "arindal",
+    "Arindal Char"
   ],
   authors: [{ name: "Thread" }],
   robots: {
