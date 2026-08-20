@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {
-    // Generic message — do not confirm/deny account existence to a caller.
+    // Generic message - do not confirm/deny account existence to a caller.
     return redirectWithError(request, "/signup", "Could not create that account. Try logging in instead.");
   }
 

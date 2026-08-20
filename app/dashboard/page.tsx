@@ -7,9 +7,9 @@ import {
 } from "lucide-react";
 import { RecentPeopleGrid } from "@/components/dashboard/RecentPeopleGrid";
 
-export const metadata = { title: "Dashboard — Thread" };
+export const metadata = { title: "Dashboard - Thread" };
 
-// Placeholder data — replace with a query against Prisma once auth/data
+// Placeholder data - replace with a query against Prisma once auth/data
 // wiring lands (see prisma/schema.prisma: Person, lastInteractionAt, etc.)
 const stats = [
   { icon: Users, label: "People kept", value: "42" },

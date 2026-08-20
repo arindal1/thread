@@ -12,7 +12,7 @@ export type RecentPerson = {
   tag: string;
 };
 
-/** Recent-people grid with pin toggling — pinned people always sort first. */
+/** Recent-people grid with pin toggling - pinned people always sort first. */
 export function RecentPeopleGrid({ people }: { people: RecentPerson[] }) {
   const { isPinned, togglePin, hydrated } = usePinnedPeople();
 

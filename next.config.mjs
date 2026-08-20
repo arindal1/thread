@@ -7,7 +7,7 @@ const nextConfig = {
   // Baseline security headers (OWASP secure-headers baseline). CSP is
   // intentionally left out for now: the WebGL shader/canvas hero + inline
   // font-fallback <style> would need a carefully tuned policy (nonces or
-  // 'unsafe-inline' scoping) that hasn't been validated yet — see
+  // 'unsafe-inline' scoping) that hasn't been validated yet - see
   // docs/Architecture.md "Known limitations".
   async headers() {
     return [

@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Plus, LogOut } from "lucide-react";
 import { DASH_NAV } from "./nav-items";
 
-/** Mobile top bar with a slide-down drawer — replaces sidebar under md. */
+/** Mobile top bar with a slide-down drawer - replaces sidebar under md. */
 export function DashboardMobileNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();

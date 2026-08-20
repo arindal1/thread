@@ -20,7 +20,7 @@ const VERTEX_SHADER = /* glsl */ `
   }
 `;
 
-// Stable empty-object default — an inline `= {}` default parameter creates a
+// Stable empty-object default - an inline `= {}` default parameter creates a
 // brand-new object on every render, which would sit in the effect's
 // dependency array below and tear down/recreate the whole WebGL context on
 // every re-render of the parent (MarbleBackground never passes `uniforms`,

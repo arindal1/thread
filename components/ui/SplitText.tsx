@@ -27,7 +27,7 @@ export function SplitChars({
   );
 }
 
-/** Splits text into per-word spans — cheaper, better for long headlines. */
+/** Splits text into per-word spans - cheaper, better for long headlines. */
 export function SplitWords({
   text,
   className,

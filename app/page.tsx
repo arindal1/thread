@@ -18,7 +18,7 @@ import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { useGsapScroll } from "@/lib/gsap/useGsapScroll";
 
-// Generative WebGL hero object — client-only, lazy, skipped entirely if the
+// Generative WebGL hero object - client-only, lazy, skipped entirely if the
 // user prefers reduced motion or is on a narrow/low-power viewport.
 const EmberRings = dynamic(
   () => import("@/components/gl/EmberRings").then((m) => m.EmberRings),
@@ -29,7 +29,7 @@ const facts = [
   {
     icon: Feather,
     title: "Every detail, kept",
-    body: "Birthdays, blood groups, the name of their dog — the small facts that make someone feel truly known.",
+    body: "Birthdays, blood groups, the name of their dog - the small facts that make someone feel truly known.",
   },
   {
     icon: ScrollText,
@@ -39,7 +39,7 @@ const facts = [
   {
     icon: Hourglass,
     title: "Before you meet again",
-    body: "A quiet summary surfaces what matters — last spoken of, what to ask, what to remember.",
+    body: "A quiet summary surfaces what matters - last spoken of, what to ask, what to remember.",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function LandingPage() {
       <section className="relative flex h-[100svh] min-h-[640px] flex-col overflow-hidden">
         <MarbleBackground />
 
-        {/* Ember rings — generative WebGL hero object. Only shown from lg
+        {/* Ember rings - generative WebGL hero object. Only shown from lg
             up: at md the viewport isn't wide enough to fit it beside the
             headline without crowding/overlapping the text. */}
         <div
@@ -90,7 +90,7 @@ export default function LandingPage() {
         <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-1 flex-col justify-center px-6 pt-24 md:justify-between md:px-10 md:pb-14 md:pt-32">
           <div>
             <p data-hero-fade className="lede mb-6 text-lg text-[var(--accent)] md:text-xl">
-              For every person who matters —
+              For every person who matters -
             </p>
             <h1 className="display overflow-hidden text-[13vw] leading-[0.95] text-[var(--ink)] sm:text-[10vw] md:text-[7vw] lg:text-[var(--step-6)]">
               <span className="block overflow-hidden">
@@ -106,7 +106,7 @@ export default function LandingPage() {
 
           <div data-hero-fade className="mt-12 flex flex-col gap-6 md:mt-0 md:flex-row md:items-end md:justify-between">
             <p className="lede max-w-md text-base text-[var(--muted)] md:text-lg">
-              Thread holds the facts, the conversations, and the context —
+              Thread holds the facts, the conversations, and the context -
               so you never walk into a room having forgotten who someone is.
             </p>
             <Link
@@ -132,9 +132,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Feature rows — editorial numbered index */}
+      {/* Feature rows - editorial numbered index */}
       <section id="facts" className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
-        <Reveal><p className="column-label mb-4">01 — WHAT THREAD REMEMBERS</p></Reveal>
+        <Reveal><p className="column-label mb-4">01 - WHAT THREAD REMEMBERS</p></Reveal>
         <div className="rule mb-16" />
         <div className="grid gap-12 md:grid-cols-3 md:gap-16">
           {facts.map(({ icon: Icon, title, body }, i) => (
@@ -150,14 +150,14 @@ export default function LandingPage() {
       {/* Editorial split */}
       <section id="ai" className="mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-2 md:gap-12 md:px-10 md:py-32">
         <Reveal>
-          <p className="column-label mb-4">02 — THE QUESTION IT ANSWERS</p>
+          <p className="column-label mb-4">02 - THE QUESTION IT ANSWERS</p>
           <h2 className="display text-3xl leading-tight md:text-5xl">
             &ldquo;What did we last talk about?&rdquo;
           </h2>
         </Reveal>
         <Reveal delay={0.15} className="lede text-lg leading-relaxed text-[var(--muted)] md:text-xl">
           <p className="mb-6">
-            An AI-generated summary — Gemini, reading only what you&rsquo;ve written —
+            An AI-generated summary - Gemini, reading only what you&rsquo;ve written -
             surfaces the shape of a relationship: what&rsquo;s changed, what&rsquo;s stayed
             the same, what&rsquo;s worth asking next.
           </p>

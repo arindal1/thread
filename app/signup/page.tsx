@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 import { AuthField } from "@/components/auth/AuthField";
 
-export const metadata = { title: "Sign Up — Thread" };
+export const metadata = { title: "Sign Up - Thread" };
 
 export default async function SignupPage({
   searchParams,
@@ -33,7 +33,7 @@ export default async function SignupPage({
         />
 
         <p className="text-xs leading-relaxed text-[var(--muted)]">
-          By continuing, you agree that your data remains yours — Thread
+          By continuing, you agree that your data remains yours - Thread
           never sells or shares what you record.
         </p>
 

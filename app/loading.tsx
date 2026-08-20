@@ -1,4 +1,4 @@
-/** Root-level suspense fallback — shown while any public route segment loads. */
+/** Root-level suspense fallback - shown while any public route segment loads. */
 export default function Loading() {
   return (
     <div

@@ -32,7 +32,7 @@ export function AuthLayout({
         <MarbleBackground />
         <div className="relative z-10 px-6 pb-8 md:px-12 md:pb-16">
           <p className="lede text-lg text-[var(--accent)] md:text-xl">
-            A private memory system for people —
+            A private memory system for people -
           </p>
           <h1 className="display mt-3 max-w-md text-3xl leading-[0.95] md:text-5xl">
             Every thread, kept.

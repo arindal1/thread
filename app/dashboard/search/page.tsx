@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
 
-export const metadata = { title: "Search — Thread" };
+export const metadata = { title: "Search - Thread" };
 
-// Placeholder — will back onto lexical + semantic search (TRD §10) once
+// Placeholder - will back onto lexical + semantic search (TRD §10) once
 // wired to notes/people content.
 export default function SearchPage() {
   return (

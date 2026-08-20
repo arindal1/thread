@@ -3,7 +3,7 @@
 /**
  * The Marble & Ember hero backdrop: slow-drifting gold veins through dark
  * stone, warmed near the bottom like candlelight against marble. Reacts
- * gently to cursor position. Single signature shader for the whole app —
+ * gently to cursor position. Single signature shader for the whole app -
  * reused wherever a "living stone" backdrop is needed (hero, section breaks).
  */
 import { ShaderBackground } from "./ShaderBackground";

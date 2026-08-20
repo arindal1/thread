@@ -8,7 +8,7 @@ const STORAGE_KEY = "thread:pinnedPeople";
  * Client-side pin state for person cards, persisted to localStorage.
  *
  * Person CRUD isn't wired to Prisma yet (see docs/Architecture.md gap
- * table) — `Person.isPinned` already exists in the schema, so once a real
+ * table) - `Person.isPinned` already exists in the schema, so once a real
  * list/detail API lands, swap this hook's read/write for a PATCH to that
  * endpoint and drop the localStorage bookkeeping.
  */
@@ -21,7 +21,7 @@ export function usePinnedPeople() {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) setPinned(new Set(JSON.parse(raw) as string[]));
     } catch {
-      // Corrupt/blocked storage — fall back to nothing pinned.
+      // Corrupt/blocked storage - fall back to nothing pinned.
     }
     setHydrated(true);
   }, []);

@@ -4,7 +4,7 @@
 
 /* ---- Thread design system: Marble & Ember ----
    Neoclassical stone + gold leaf, warmed by cinematic dark luxury.
-   This is the single, permanent theme — no more [data-concept] scoping. */
+   This is the single, permanent theme - no more [data-concept] scoping. */
 :root {
   --bg: #0b0908;
   --surface: #161210;

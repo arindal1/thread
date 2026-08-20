@@ -1,4 +1,4 @@
-/** Dashboard suspense fallback — sidebar/mobile-nav stay mounted (layout),
+/** Dashboard suspense fallback - sidebar/mobile-nav stay mounted (layout),
  * only this swaps in for the content pane while a segment loads. */
 export default function DashboardLoading() {
   return (

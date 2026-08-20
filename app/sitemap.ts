@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thread.app";
 
-/** Only public, indexable routes — /dashboard/*, /api/*, and auth pages are
+/** Only public, indexable routes - /dashboard/*, /api/*, and auth pages are
  * intentionally excluded (private or not meant to rank). */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

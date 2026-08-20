@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Feather } from "lucide-react";
 
-export const metadata = { title: "Page not found — Thread" };
+export const metadata = { title: "Page not found - Thread" };
 
-/** Global 404 — catches unmatched routes under any segment. */
+/** Global 404 - catches unmatched routes under any segment. */
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[var(--bg)] px-6 text-center">
       <Feather className="mb-8 h-8 w-8 text-[var(--accent)]" strokeWidth={1.25} />
-      <p className="column-label mb-4">404 — LOST THREAD</p>
+      <p className="column-label mb-4">404 - LOST THREAD</p>
       <h1 className="display text-4xl text-[var(--ink)] md:text-6xl">
         This page isn&rsquo;t in the record.
       </h1>

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { LogOut } from "lucide-react";
 import { DASH_NAV } from "./nav-items";
 
-/** Desktop sidebar — persistent, hairline-divided, neoclassical restraint. */
+/** Desktop sidebar - persistent, hairline-divided, neoclassical restraint. */
 export function DashboardSidebar({ email }: { email?: string }) {
   const pathname = usePathname();
 

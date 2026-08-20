@@ -1,5 +1,5 @@
 // Best-effort in-memory rate limiter for auth endpoints (login/signup).
-// Single-process only — resets on deploy/restart and is NOT shared across
+// Single-process only - resets on deploy/restart and is NOT shared across
 // serverless instances. Sufficient to blunt casual credential stuffing /
 // brute force during early development; replace with a shared store
 // (Upstash Redis, etc.) before relying on it in a scaled deployment. See

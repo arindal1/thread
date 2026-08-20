@@ -7,7 +7,7 @@ import { getCurrentSession } from "@/lib/auth/session";
 export default async function DashboardLayout({ children }: { children: ReactNode }) {
   // Defense-in-depth: middleware.ts already blocks unauthenticated requests
   // to /dashboard/*, but every data-access layer re-checks independently
-  // (TRD §18 — authorization enforced at every layer, not just the edge).
+  // (TRD §18 - authorization enforced at every layer, not just the edge).
   const session = await getCurrentSession();
   if (!session) redirect("/login");
 

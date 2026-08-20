@@ -2,7 +2,7 @@
 // build/dev time, which is unreliable behind restrictive networks/proxies
 // (ECONNRESET). Until a concept is chosen and fonts are self-hosted, every
 // --font-* variable referenced by styles/concepts/*.css resolves to a safe
-// local font stack here — no network dependency, same variable names.
+// local font stack here - no network dependency, same variable names.
 export const fontVariablesClassName = "thread-font-fallbacks";
 
 export const fontFallbackStyles = `

@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 /**
  * Generative WebGL "hero object": a slowly rotating cluster of thin gold
- * rings (like an orrery / astrolabe) rendered with raw three.js — no r3f
+ * rings (like an orrery / astrolabe) rendered with raw three.js - no r3f
  * overhead. Stands in for the "person constellation" motif without the
  * heavier particle-line system. Disabled on prefers-reduced-motion (renders
  * one static frame) and skipped entirely below a width threshold to protect
@@ -31,7 +31,7 @@ export function EmberRings({ className }: { className?: string }) {
     const emberMat = new THREE.LineBasicMaterial({ color: 0x7a1f2b, transparent: true, opacity: 0.4 });
 
     // Each ring gets its own orbital pivot (revolves around the cluster
-    // center) plus spins on its own tilted axis — like a small orrery
+    // center) plus spins on its own tilted axis - like a small orrery
     // rather than one rigid rotating disc. Speeds/directions/tilts are
     // deliberately varied per ring so the motion reads as independent.
     const ringCount = 5;

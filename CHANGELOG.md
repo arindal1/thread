@@ -3,6 +3,28 @@
 All notable changes to this project are documented here.
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.3.3] - 2026-08-20
+
+### Added
+- Keep-alive endpoints and scheduled pings to avoid cold Neon/serverless
+  starts in production:
+  - `GET /api/health/db` (`app/api/health/db/route.ts`) - runs
+    `SELECT 1` against Prisma to stop Neon's compute endpoint auto-
+    suspending after ~5 minutes idle. Requires `Authorization: Bearer
+    $CRON_SECRET` when `CRON_SECRET` is set.
+  - `GET /api/health` (`app/api/health/route.ts`) - DB-free liveness
+    check to keep the deployment itself warm.
+  - `.github/workflows/keep-alive.yml` - scheduled job hitting the DB
+    endpoint every 5 minutes and the frontend endpoint every 12 minutes;
+    works on any host without a paid plan.
+  - `vercel.json` - equivalent Vercel Cron config for Pro-plan projects
+    (Hobby plan only allows daily crons, so GitHub Actions is the
+    default path).
+- `docs/Deployment.md` - end-to-end deployment guide (env vars, Neon
+  setup, Vercel deploy steps, keep-alive scheduling, post-deploy
+  checklist).
+- `CRON_SECRET` added to `.env.example`.
+
 ## [0.3.2] - 2026-08-20
 
 ### Fixed

@@ -1,4 +1,4 @@
-# Thread — A Personal CRM
+# Thread - A Personal CRM
 
 A private memory system for people. Thread stores structured facts and
 free-form notes about everyone you know, organizes them by time and
@@ -6,7 +6,8 @@ relevance, and (eventually) uses AI to surface the right context before
 your next conversation.
 
 Product spec: [docs/TRD.md](docs/TRD.md) · current implementation state:
-[docs/Architecture.md](docs/Architecture.md) · release history:
+[docs/Architecture.md](docs/Architecture.md) · deploying to production:
+[docs/Deployment.md](docs/Deployment.md) · release history:
 [CHANGELOG.md](CHANGELOG.md).
 
 ## Stack
@@ -57,7 +58,7 @@ docs/           TRD.md (product spec), Architecture.md (build status)
 
 Auth (signup/login/logout), route protection, and the dashboard shell are
 implemented. Person/note/event/reminder CRUD, search, and AI summaries are
-not yet wired to Prisma — see [docs/Architecture.md](docs/Architecture.md)
+not yet wired to Prisma - see [docs/Architecture.md](docs/Architecture.md)
 for the up-to-date gap list against the TRD.
 
 ## Security

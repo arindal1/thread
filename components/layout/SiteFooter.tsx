@@ -31,7 +31,7 @@ export function SiteFooter() {
       <div className="rule mx-auto mt-12 max-w-6xl" />
       <div className="mx-auto mt-6 flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="column-label">
-          © {new Date().getFullYear()} THREAD — PRIVATE, YOURS, ALWAYS GROWING
+          © {new Date().getFullYear()} THREAD - PRIVATE, YOURS, ALWAYS GROWING
         </p>
         <p className="column-label flex flex-wrap items-center gap-x-3 gap-y-1">
           <span>BUILT BY ARINDAL</span>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AuthLayout } from "@/components/auth/AuthLayout";
 import { AuthField } from "@/components/auth/AuthField";
 
-export const metadata = { title: "Log In — Thread" };
+export const metadata = { title: "Log In - Thread" };
 
 export default async function LoginPage({
   searchParams,

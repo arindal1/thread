@@ -1,6 +1,6 @@
 import { Settings } from "lucide-react";
 
-export const metadata = { title: "Settings — Thread" };
+export const metadata = { title: "Settings - Thread" };
 
 export default function SettingsPage() {
   return (

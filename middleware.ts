@@ -11,7 +11,7 @@ const PROTECTED_PREFIX = "/dashboard";
  *    /dashboard (no re-signing-in once already signed in)
  *
  * This runs on the Edge runtime, so session verification is JWT-only
- * (`jose`) — no Prisma/Node-only APIs here. See lib/auth/session.ts.
+ * (`jose`) - no Prisma/Node-only APIs here. See lib/auth/session.ts.
  */
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get(SESSION_COOKIE)?.value;

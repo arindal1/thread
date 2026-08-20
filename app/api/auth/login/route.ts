@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
   const token = await createSessionToken({ userId: user.id, email: user.email });
   // Only ever redirect to an internal path, never to an attacker-supplied
   // absolute/protocol-relative URL (open-redirect guard). Reject not just
-  // "//host" but also "/\host" and "/\/host" — browsers' WHATWG URL parser
+  // "//host" but also "/\host" and "/\/host" - browsers' WHATWG URL parser
   // treats a leading backslash the same as a forward slash for special
   // schemes, so "/\evil.com" would otherwise resolve to https://evil.com.
   const isSafeNext = (value: unknown): value is string =>

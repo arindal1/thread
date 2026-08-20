@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-// Session strategy: a signed JWT (HS256, via `jose` — edge-runtime safe so
+// Session strategy: a signed JWT (HS256, via `jose` - edge-runtime safe so
 // it can be verified in middleware.ts) stored in an httpOnly cookie. This is
 // intentionally minimal for a single-user-per-account app; see
 // docs/Architecture.md for the auth design and its limits.
@@ -45,7 +45,7 @@ export async function verifySessionToken(token: string): Promise<SessionPayload 
   }
 }
 
-/** Server-component/route-handler helper — reads and verifies the current
+/** Server-component/route-handler helper - reads and verifies the current
  * session cookie. Used as defense-in-depth alongside middleware.ts so every
  * data-access layer independently confirms identity (TRD §18). */
 export async function getCurrentSession(): Promise<SessionPayload | null> {
