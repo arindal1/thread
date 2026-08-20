@@ -1,0 +1,36 @@
+name: Keep-alive pings
+
+# Prevents two independent "cold" problems on the free/hobby tiers this app
+# is deployed on:
+#  - Neon Postgres auto-suspends its compute endpoint after ~5 minutes idle
+#    (db-ping keeps a query flowing so it never idles that long)
+#  - The hosting platform can spin down/cold-start an idle serverless
+#    deployment (frontend-ping keeps the app warm)
+#
+# GitHub Actions cron is best-effort (can run a few minutes late under
+# load), not wall-clock precise. If DB suspensions still happen in
+# practice, switch db-ping to a dedicated uptime service (cron-job.org,
+# UptimeRobot, BetterStack) for tighter timing — see docs/Deployment.md.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # db-ping: every 5 minutes
+    - cron: "*/12 * * * *" # frontend-ping: every 12 minutes
+  workflow_dispatch: {}
+
+jobs:
+  db-ping:
+    if: github.event.schedule == '*/5 * * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping DB keep-alive endpoint
+        run: |
+          curl -sf -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "${{ secrets.APP_URL }}/api/health/db"
+
+  frontend-ping:
+    if: github.event.schedule == '*/12 * * * *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping frontend health endpoint
+        run: curl -sf "${{ secrets.APP_URL }}/api/health"
